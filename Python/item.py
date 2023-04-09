@@ -3,7 +3,7 @@ class Item:
     discount_percentage = 0.27
 
     def __init__(self, name, price: float, quantity) -> None:
-        self.name = name
+        self.__name = name
         self.price = price
         self.quantity = quantity
 
@@ -20,6 +20,14 @@ class Item:
         return str(
             self.__dict__
         )  # you need to convert to a string format otherwise it will raise an error
+
+    @property
+    def name(self):
+        return self.__name
+
+    @name.setter
+    def name(self, name):
+        self.__name = name
 
     def __repr__(self) -> str:
         return (
